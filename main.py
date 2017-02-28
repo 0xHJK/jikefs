@@ -6,9 +6,12 @@ from collections import defaultdict
 def tree():
     return defaultdict(tree)
 
-def ls(t):
-    pass
-
+def ls(t, args):
+    dirs = args.split('/')
+    for d in dirs:
+        t = t[d]
+    for k in t.keys:
+        print(k)
 
 def cd(t, args):
     pass
@@ -19,9 +22,11 @@ def mkdir(t, args):
 
 if __name__ == '__main__':
     t = tree()
+    t['a']['b']['c'] = 'zxc'
+    t['a']['e']['f'] = 'bmn'
     pwd = ''
     while True:
-        line = raw_input().strip()
+        line = input().strip()
         if not line:
             break
         words = line.split()
