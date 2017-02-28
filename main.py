@@ -9,8 +9,9 @@ def tree():
 def ls(t, args):
     dirs = args.split('/')
     for d in dirs:
-        t = t[d]
-    for k in t.keys:
+        if d:
+            t = t[d]
+    for k in t.keys():
         print(k)
 
 def cd(t, args):
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     t = tree()
     t['a']['b']['c'] = 'zxc'
     t['a']['e']['f'] = 'bmn'
-    pwd = ''
+    pwd = 'a/'
     while True:
         line = input().strip()
         if not line:
